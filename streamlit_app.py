@@ -36,7 +36,7 @@ if st.button("Calculate Risk"):
     heart_input = np.array([[age, blood_pressure, cholesterol, max_heart_rate]])
     heart_risk = heart_model.predict_proba(heart_input)[0][1]
     if smoking == 1:
-        heart_risk += 0.07  
+        heart_risk += 0.03 
     if hypertension == 1:
         heart_risk += 0.05
     heart_risk = min(heart_risk, 1.0)
@@ -52,7 +52,7 @@ if st.button("Calculate Risk"):
     stroke_input = np.array([[age, hypertension, heart_disease_existing, glucose]])
     stroke_risk = stroke_model.predict_proba(stroke_input)[0][1]
     if smoking == 1:
-        stroke_risk += 0.08
+        stroke_risk += 0.05
     stroke_risk = min(stroke_risk, 1.0)
 
     st.header("Results")
