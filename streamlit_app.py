@@ -26,12 +26,12 @@ max_heart_rate = st.number_input("Max Heart Rate", min_value=60, max_value=220, 
 bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, value=22.0)
 glucose = st.number_input("Glucose Level", min_value=50, max_value=300, value=90)
 
-hypertension = st.selectbox("Hypertension (1 = Yes, 0 = No)", [0, 1])
-heart_disease_existing = st.selectbox("Existing Heart Disease (1 = Yes, 0 = No)", [0, 1])
-smoking = st.selectbox("Smoking (1 = Yes, 0 = No)", [0, 1])
+hypertension = st.selectbox("Hypertension", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
+heart_disease_existing = st.selectbox("Existing Heart Disease", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
+smoking = st.selectbox("Smoking Status", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
 
 if st.button("Calculate Risk"):
-
+    
     # HEART (matches training exactly)
     heart_input = np.array([[age, blood_pressure, cholesterol, max_heart_rate]])
     heart_risk = heart_model.predict_proba(heart_input)[0][1]
@@ -48,3 +48,8 @@ if st.button("Calculate Risk"):
     st.write(f"Heart Disease Risk: {heart_risk * 100:.2f}%")
     st.write(f"Diabetes Risk: {diabetes_risk * 100:.2f}%")
     st.write(f"Stroke Risk: {stroke_risk * 100:.2f}%")
+st.divider()
+st.caption("**Disclaimer:** This AI Health Risk Dashboard is a prototype developed for a TKS focus project. "
+           "The predictions are based on credible public health datasets (like the Cleveland Heart Disease dataset) "
+           "and are for informational purposes only. This tool does not provide medical advice "
+           "and should not be used for self-diagnosis. Please consult a qualified healthcare professional.")
