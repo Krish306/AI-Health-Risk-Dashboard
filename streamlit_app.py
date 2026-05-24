@@ -127,7 +127,7 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
         st.write("""
         This dashboard uses a **Hybrid Intelligence Model**:
         - **Base Prediction:** Trained on clinical datasets (Cleveland, NHANES) using Logistic Regression.
-        - **Heuristic Layer:** Adjusts scores based on lifestyle factors (Smoking, Stress, Physical Activity) that are often underrepresented in static clinical snapshots.
+        - **Heuristic Layer:** Adjusts scores based on lifestyle factors (Smoking, Stress, Physical Activity) that are often underrepresented in instantaneous vitals.
         - **Risk Stratification Levels:** Risk alerts are triggered based on standard epidemiological cut-offs.
         """)    
        
