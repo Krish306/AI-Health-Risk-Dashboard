@@ -80,7 +80,7 @@ st.divider()
 st.caption("**Disclaimer:** This AI Health Risk Dashboard is a prototype developed for a TKS focus project. "
            "The predictions are based on credible public health datasets (like the Cleveland Heart Disease dataset) "
            "and are for informational purposes only. This tool does not provide medical advice "
-           "and should not be used for self-diagnosis. Please consult a qualified healthcare professional.")
+           "Please consult a qualified healthcare professional for medical advice.")
 with st.sidebar:
     st.title("About Me")
     st.markdown("""
@@ -88,8 +88,8 @@ with st.sidebar:
     
     **Focus:** AI integrated Healthcare
     
-    I am a TKS Innovate Student passionate about integrating AI in Healthcare 
-    to maximize efficiency, save more lives, and improve health for all.
+    I am a TKS Innovate Student passionate about integrating AI in Healthcare:
+    maximizing clinical efficiency and improving health outcomes through AI.
     This dashboard is one of my projects, currently in its initial stages.
     It uses credible public health datasets to build a predictive model that identifies potential health risks.
     """)
