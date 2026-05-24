@@ -127,26 +127,28 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
     else:
         st.success("**Low Risk:** Maintain your healthy lifestyle habits!")
     st.divider()
-    st.subheader("Personalized Risk Mitigation Plan")
+    st.subheader("### Personalized Risk Mitigation Plan")
+    st.caption("This plan provides evidence-based suggestions. Consult a professional before implementation.")
     
     plan_col1, plan_col2 = st.columns(2)
     
     with plan_col1:
-        st.markdown("### Priority Actions")
-        if heart_risk > 0.15 or stroke_risk > 0.15:
-            st.write("- **Aerobic Conditioning:** Aim for 150 min/week of moderate-intensity activity to improve arterial elasticity.")
-        if diabetes_risk > 0.15:
-            st.write("- **Glycemic Management:** Focus on low-glycemic index foods to reduce insulin spikes.")
+        st.markdown("## Lifestyle Interventions")
+        if activity_level == "Sedentary":
+            st.write("- **Physical Activity:** Incorporate 150 min/week of moderate aerobic exercise to improve cardiovascular resilience.")
+        if diet_quality == "Low (Processed/High Sugar)":
+            st.write("- **Nutritional Shift:** Prioritize whole foods and complex carbohydrates to stabilize glucose levels.")
         if smoking == 1:
-            st.write("- **Cessation Support:** Smoking is your highest modifiable risk factor. Consult a specialist for a cessation plan.")
+            st.write("- **Cessation:** This is the highest modifiable risk factor for stroke. Seek professional support for a cessation strategy.")
             
     with plan_col2:
-        st.markdown("### Clinical Follow-up")
-        if blood_pressure > 130 or cholesterol > 200:
-            st.write("- **Vitals Review:** Schedule a lipid panel and blood pressure re-check within 30 days.")
+        st.markdown("## Clinical Management")
+        if blood_pressure > 130 or hypertension == 1:
+            st.write("- **Hypertension Monitoring:** Regular BP tracking is vital to prevent long-term arterial damage.")
         if stress_level == "High":
-            st.write("- **Cortisol Regulation:** Explore mindfulness-based stress reduction (MBSR) to lower systemic inflammation.")
-        st.write("- **Professional Consultation:** Discuss these specific risk percentages with your primary care provider.")
+            st.write("- **Stress Reduction:** Chronic high cortisol levels impact metabolic health; consider MBSR or mindfulness practices.")
+        if age > 50:
+            st.write("- **Diagnostic Screenings:** Ensure regular lipid panels and A1C checks are up to date.")
     with st.expander("See Risk Calculation Logic"):
         st.write("""
         This dashboard uses a **Hybrid Intelligence Model**:
