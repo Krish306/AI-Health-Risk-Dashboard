@@ -64,8 +64,8 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
     stroke_risk = min(stroke_risk, 1.0)
     
     if activity_level == "Sedentary":
-        heart_risk += 0.04
-        diabetes_risk += 0.04
+        heart_risk += 0.03
+        diabetes_risk += 0.03
         stroke_risk += 0.03
     elif activity_level == "Active (3+ times/week)":
         heart_risk -= 0.02 # Benefit for being active
@@ -73,7 +73,7 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
 
     # 2. Diet Quality Adjustment
     if diet_quality == "Low (Processed/High Sugar)":
-        diabetes_risk += 0.05
+        diabetes_risk += 0.03
         heart_risk += 0.03
     elif diet_quality == "High (Whole foods)":
         diabetes_risk -= 0.02
