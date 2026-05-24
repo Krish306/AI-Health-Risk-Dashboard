@@ -46,13 +46,13 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
     heart_input = np.array([[age, blood_pressure, cholesterol, max_heart_rate]])
     heart_risk = heart_model.predict_proba(heart_input)[0][1]
     if smoking == 1: heart_risk += 0.03 
-    if hypertension == 1: heart_risk += 0.03
+    if hypertension == 1: heart_risk += 0.04
     heart_risk = min(heart_risk, 1.0)
 
     # DIABETES Calculation
     diabetes_input = np.array([[glucose, bmi, age]])
     diabetes_risk = diabetes_model.predict_proba(diabetes_input)[0][1]
-    if hypertension == 1: diabetes_risk += 0.03
+    if hypertension == 1: diabetes_risk += 0.04
     diabetes_risk = min(diabetes_risk, 1.0)
 
     # STROKE Calculation
