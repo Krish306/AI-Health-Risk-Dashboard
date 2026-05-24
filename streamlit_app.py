@@ -41,7 +41,6 @@ with col_in2:
     diet_quality = st.selectbox("Diet Quality", ["High (Whole foods)", "Average", "Low (Processed/High Sugar)"], index=1)
     stress_level = st.select_slider("Chronic Stress Level", options=["Low", "Moderate", "High"])
     value="Low"
-    )
 
     # DYNAMIC COLOR FEEDBACK
     if stress_level == "Low":
