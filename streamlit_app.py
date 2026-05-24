@@ -39,6 +39,7 @@ with col_in2:
     smoking = st.selectbox("Smoking Status", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
     activity_level = st.selectbox("Physical Activity", ["Active (3+ times/week)", "Moderate", "Sedentary"], index=1)
     diet_quality = st.selectbox("Diet Quality", ["High (Whole foods)", "Average", "Low (Processed/High Sugar)"], index=1)
+    stress_level = st.select_slider("Chronic Stress Level", options=["Low", "Moderate", "High"])
 
 st.divider()
 
@@ -80,6 +81,18 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
         heart_risk -= 0.01
 
     # Apply caps again at the very end
+    heart_risk = max(0.0, min(heart_risk, 1.0))
+    diabetes_risk = max(0.0, min(diabetes_risk, 1.0))
+    stroke_risk = max(0.0, min(stroke_risk, 1.0))
+    
+    if stress_level == "High":
+        heart_risk += 0.05
+        stroke_risk += 0.04
+        diabetes_risk += 0.02
+    elif stress_level == "Moderate":
+        heart_risk += 0.02
+        
+    # Final normalization (Keep between 0 and 1)
     heart_risk = max(0.0, min(heart_risk, 1.0))
     diabetes_risk = max(0.0, min(diabetes_risk, 1.0))
     stroke_risk = max(0.0, min(stroke_risk, 1.0))
