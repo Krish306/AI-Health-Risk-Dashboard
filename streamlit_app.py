@@ -119,13 +119,22 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
         st.metric(label="Stroke Risk", value=f"{stroke_risk * 100:.1f}%")    
 
     # We check Heart (>25%), Stroke (>20%), and Diabetes (>25%) for High Risk
-    if heart_risk > 0.20 or stroke_risk > 0.15 or diabetes_risk > 0.20:
-        st.error("**High Risk Detected:** Please consult a physician for a formal evaluation as soon as possible.")
+    if (heart_risk > 0.20 or stroke_risk > 0.15 or diabetes_risk > 0.20 or 
+        blood_pressure >= 180 or glucose >= 250 or bmi >= 45):
+        st.error("**High Risk / Critical Value Detected:** Please consult a physician immediately. Some of your vitals are in a range that requires professional evaluation.")
     
-    # We check Heart (>15%) and Diabetes (>15%) for Moderate Risk
-    elif heart_risk > 0.15 or diabetes_risk > 0.15:
-        st.warning("**Moderate Risk:** Consider lifestyle changes and regular monitoring.")
+    # 2. MODERATE OVERRIDE (Yellow Alert)
+    # Triggered by moderate AI risk OR serious lifestyle habits
+    elif (heart_risk > 0.10 or diabetes_risk > 0.10 or 
+          smoking == 1 or blood_pressure >= 140 or glucose >= 125):
+        
+        # Specific message if it's just the smoking/vitals causing the alert
+        if smoking == 1 and heart_risk <= 0.10:
+            st.warning("**Lifestyle Warning:** While your current risk score is low, **smoking** and/or your current vitals are significant long-term threats to your health.")
+        else:
+            st.warning("**Moderate Risk:** Lifestyle modifications and clinical monitoring are advised.")
     
+    # 3. THE "CLEAN BILL" (Green Alert)
     else:
         st.success("**Low Risk:** Maintain your healthy lifestyle habits!")
         
