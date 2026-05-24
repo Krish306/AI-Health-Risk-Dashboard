@@ -126,29 +126,45 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
         st.warning("**Moderate Risk:** Consider lifestyle changes and regular monitoring.")
     else:
         st.success("**Low Risk:** Maintain your healthy lifestyle habits!")
+        
     st.divider()
     st.subheader("Personalized Risk Mitigation Plan")
-    st.caption("This plan provides evidence-based suggestions. Consult a professional before implementation.")
+    st.caption("This framework provides evidence-based suggestions for risk reduction. Consult a healthcare professional before implementation.")
     
     plan_col1, plan_col2 = st.columns(2)
     
     with plan_col1:
-        st.markdown("## Lifestyle Interventions")
-        if activity_level == "Sedentary":
-            st.write("- **Physical Activity:** Incorporate 150 min/week of moderate aerobic exercise to improve cardiovascular resilience.")
-        if diet_quality == "Low (Processed/High Sugar)":
-            st.write("- **Nutritional Shift:** Prioritize whole foods and complex carbohydrates to stabilize glucose levels.")
-        if smoking == 1:
-            st.write("- **Cessation:** This is the highest modifiable risk factor for stroke. Seek professional support for a cessation strategy.")
-            
-    with plan_col2:
-        st.markdown("## Clinical Management")
+        st.markdown("### Clinical Management")
+        # Specific Triggers
         if blood_pressure > 130 or hypertension == 1:
             st.write("- **Hypertension Monitoring:** Regular BP tracking is vital to prevent long-term arterial damage.")
         if stress_level == "High":
-            st.write("- **Stress Reduction:** Chronic high cortisol levels impact metabolic health; consider MBSR or mindfulness practices.")
-        if age > 50:
-            st.write("- **Diagnostic Screenings:** Ensure regular lipid panels and A1C checks are up to date.")
+            st.write("- **Cortisol Regulation:** Consider MBSR to lower systemic inflammation caused by chronic stress.")
+        if age > 50 or glucose > 100:
+            st.write("- **Diagnostic Screenings:** Maintain regular lipid panels and HbA1c checks to monitor metabolic trends.")
+        
+        # ALWAYS SHOW THIS (General Clinical Advice)
+        st.write("- **Baseline Vitals:** Even with low risk scores, an annual physical is recommended to establish your 'clinical baseline'.")
+        st.write("- **Physician Review:** Share these AI-stratified results with your doctor to discuss long-term preventive care.")
+
+    with plan_col2:
+        st.markdown("### Lifestyle Interventions")
+        # Specific Triggers
+        if activity_level == "Sedentary":
+            st.write("- **Physical Activity:** Aim for 150 min/week of moderate aerobic exercise to enhance cardiovascular resilience.")
+        elif activity_level == "Active (3+ times/week)":
+            st.write("- **Performance Maintenance:** Continue your current activity level; consider adding resistance training for metabolic health.")
+            
+        if diet_quality == "Low (Processed/High Sugar)":
+            st.write("- **Nutritional Optimization:** Shift toward a Mediterranean or DASH-style diet to improve lipid profiles.")
+        else:
+            st.write("- **Nutritional Consistency:** Maintain a high-fiber, whole-food diet to support long-term heart and gut health.")
+
+        if smoking == 1:
+            st.write("- **Smoking Cessation:** This is the #1 modifiable risk factor. Seek professional support for cessation frameworks.")
+        
+        # ALWAYS SHOW THIS (General Lifestyle Advice)
+        st.write("- **Hydration & Sleep:** Prioritize 7-9 hours of quality sleep and consistent hydration to support systemic recovery.")
             
     with st.expander("See Risk Calculation Logic"):
         st.write("""
