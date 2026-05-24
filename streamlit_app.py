@@ -40,6 +40,16 @@ with col_in2:
     activity_level = st.selectbox("Physical Activity", ["Active (3+ times/week)", "Moderate", "Sedentary"], index=1)
     diet_quality = st.selectbox("Diet Quality", ["High (Whole foods)", "Average", "Low (Processed/High Sugar)"], index=1)
     stress_level = st.select_slider("Chronic Stress Level", options=["Low", "Moderate", "High"])
+    value="Low"
+    )
+
+    # DYNAMIC COLOR FEEDBACK
+    if stress_level == "Low":
+        st.markdown(":green[**Status: Low Impact on Heart/Stroke**]")
+    elif stress_level == "Moderate":
+        st.markdown(":orange[**Status: Moderate Physiological Strain**]")
+    else:
+        st.markdown(":red[**Status: High Cortisol/Arterial Tension**]")
 
 st.divider()
 
