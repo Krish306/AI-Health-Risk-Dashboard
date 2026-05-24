@@ -159,7 +159,7 @@ with st.sidebar:
     - **Logic:** Multi-modal Heuristic Layer 
     """)
     
-    st.subheader(" Roadmap")
+    st.subheader("Roadmap")
     st.write("""
     1. **Diverse Data:** Adding more diverse demographic data to improve accuracy.
     2. **Explainability:** Implementing SHAP values to explain risk factors, which features (like Glucose vs BMI) are influencing the risk scores more.
