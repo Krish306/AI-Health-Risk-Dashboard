@@ -163,7 +163,7 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
             st.write("- **Nutritional Consistency:** Maintain a high-fiber, whole-food diet to support long-term heart and gut health.")
 
         if smoking == 1:
-            st.write("- **Smoking Cessation:** This is the #1 modifiable risk factor. Seek professional support for cessation frameworks.")
+            st.write("- **Smoking Cessation:** This is the #1 modifiable risk factor. Seek professional support quit smoking and/or tobacco use.")
         
         # ALWAYS SHOW THIS (General Lifestyle Advice)
         st.write("- **Hydration & Sleep:** Prioritize 7-9 hours of quality sleep and consistent hydration to support systemic recovery.")
