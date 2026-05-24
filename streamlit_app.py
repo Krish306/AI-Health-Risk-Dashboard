@@ -101,7 +101,7 @@ with st.sidebar:
     st.subheader("Project Technicals")
     st.info("""
     - **Models:** Logistic Regression / Random Forest
-    - **Data Sources:** Cleveland Clinic, Kaggle, NHANES
+    - **Datasets Used:** Cleveland Clinic, Kaggle, NHANES
     - **Logic:** Multi-modal Heuristic Layer 
     """)
     
