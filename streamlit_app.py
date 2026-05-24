@@ -88,10 +88,10 @@ st.caption("**Disclaimer:** This AI Health Risk Dashboard is a prototype develop
 
 # --- SIDEBAR POLISH ---
 with st.sidebar:
-    st.title("User Profile")
+    st.title("About Me")
     st.markdown(f"""
     **Name:** Krish Kaliraj  
-    **Focus:** AI integrated Healthcare  
+    **Focus:** AI Integrated Healthcare  
     
     I am a TKS Innovate Student passionate about maximizing clinical efficiency and improving health outcomes through AI.
     """)
