@@ -126,6 +126,27 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
         st.warning("**Moderate Risk:** Consider lifestyle changes and regular monitoring.")
     else:
         st.success("**Low Risk:** Maintain your healthy lifestyle habits!")
+    st.divider()
+    st.subheader("Personalized Risk Mitigation Plan")
+    
+    plan_col1, plan_col2 = st.columns(2)
+    
+    with plan_col1:
+        st.markdown("### Priority Actions")
+        if heart_risk > 0.15 or stroke_risk > 0.15:
+            st.write("- **Aerobic Conditioning:** Aim for 150 min/week of moderate-intensity activity to improve arterial elasticity.")
+        if diabetes_risk > 0.15:
+            st.write("- **Glycemic Management:** Focus on low-glycemic index foods to reduce insulin spikes.")
+        if smoking == 1:
+            st.write("- **Cessation Support:** Smoking is your highest modifiable risk factor. Consult a specialist for a cessation plan.")
+            
+    with plan_col2:
+        st.markdown("### Clinical Follow-up")
+        if blood_pressure > 130 or cholesterol > 200:
+            st.write("- **Vitals Review:** Schedule a lipid panel and blood pressure re-check within 30 days.")
+        if stress_level == "High":
+            st.write("- **Cortisol Regulation:** Explore mindfulness-based stress reduction (MBSR) to lower systemic inflammation.")
+        st.write("- **Professional Consultation:** Discuss these specific risk percentages with your primary care provider.")
     with st.expander("See Risk Calculation Logic"):
         st.write("""
         This dashboard uses a **Hybrid Intelligence Model**:
