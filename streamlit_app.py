@@ -27,7 +27,7 @@ with col_in1:
     st.subheader("Physical Vitals")
     age = st.number_input("Age", min_value=1, max_value=110, value=25)
     blood_pressure = st.number_input("Blood Pressure", min_value=50, max_value=200, value=110)
-    cholesterol = st.number_input("Cholesterol", min_value=100, max_value=400, value=150)
+    cholesterol = st.number_input("Cholesterol", min_value=80, max_value=400, value=110)
     max_heart_rate = st.number_input("Max Heart Rate", min_value=60, max_value=220, value=180)
     bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, value=22.0)
     glucose = st.number_input("Glucose Level", min_value=50, max_value=300, value=90)
