@@ -14,25 +14,21 @@ with open("diabetes_model.pkl", "rb") as f:
 
 with open("stroke_model.pkl", "rb") as f:
     stroke_model = pickle.load(f)
+    
 st.header("Enter Your Information")
 
-# Grouping by category
-col1, col2 = st.columns(2)
+# Inputs
+age = st.number_input("Age", min_value=1, max_value=120, value=25)
+blood_pressure = st.number_input("Blood Pressure", min_value=50, max_value=200, value=110)
+cholesterol = st.number_input("Cholesterol", min_value=100, max_value=400, value=150)
+max_heart_rate = st.number_input("Max Heart Rate", min_value=60, max_value=220, value=180)
 
-with col1:
-    st.subheader("Physical Vitals")
-    age = st.number_input("Age", min_value=1, max_value=120, value=25)
-    blood_pressure = st.number_input("Blood Pressure", min_value=50, max_value=200, value=110)
-    cholesterol = st.number_input("Cholesterol", min_value=100, max_value=400, value=150)
-    max_heart_rate = st.number_input("Max Heart Rate", min_value=60, max_value=220, value=180)
+bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, value=22.0)
+glucose = st.number_input("Glucose Level", min_value=50, max_value=300, value=90)
 
-with col2:
-    st.subheader("Lifestyle & Lab")
-    bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, value=22.0)
-    glucose = st.number_input("Glucose Level", min_value=50, max_value=300, value=90)
-    hypertension = st.selectbox("Hypertension", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
-    smoking = st.selectbox("Smoking Status", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
-
+hypertension = st.selectbox("Hypertension", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
+heart_disease_existing = st.selectbox("Existing Heart Disease", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
+smoking = st.selectbox("Smoking Status", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
 if st.button("Calculate Risk"):
     
     # HEART (matches training exactly)
@@ -67,9 +63,19 @@ if st.button("Calculate Risk"):
         st.success("Low Risk: Maintain your healthy lifestyle habits!")
         
     st.header("Results")
-    st.write(f"Heart Disease Risk: {heart_risk * 100:.2f}%")
-    st.write(f"Diabetes Risk: {diabetes_risk * 100:.2f}%")
-    st.write(f"Stroke Risk: {stroke_risk * 100:.2f}%")
+    
+    # Create the columns
+    res_col1, res_col2, res_col3 = st.columns(3)
+
+    with res_col1:
+        st.metric(label="Heart Risk", value=f"{heart_risk * 100:.1f}%")
+        
+    with res_col2:
+        st.metric(label="Diabetes Risk", value=f"{diabetes_risk * 100:.1f}%")
+
+    with res_col3:
+        st.metric(label="Stroke Risk", value=f"{stroke_risk * 100:.1f}%")    
+   
 st.divider()
 st.caption("**Disclaimer:** This AI Health Risk Dashboard is a prototype developed for a TKS focus project. "
            "The predictions are based on credible public health datasets (like the Cleveland Heart Disease dataset) "
