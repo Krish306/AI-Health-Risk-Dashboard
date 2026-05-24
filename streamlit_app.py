@@ -64,3 +64,15 @@ st.caption("**Disclaimer:** This AI Health Risk Dashboard is a prototype develop
            "The predictions are based on credible public health datasets (like the Cleveland Heart Disease dataset) "
            "and are for informational purposes only. This tool does not provide medical advice "
            "and should not be used for self-diagnosis. Please consult a qualified healthcare professional.")
+with st.sidebar:
+    st.title("About Project")
+    st.info("""
+    **Model Architecture:** - Logistic Regression / Random Forest
+    - Multi-modal Heuristic Layer
+    
+    **Datasets:** - Cleveland Heart Disease Dataset
+    - Kaggle Diabetes Dataset
+    - Kaggle Stroke Dataset
+    
+    **Developer:** [Krish Kaliraj]
+    """)
