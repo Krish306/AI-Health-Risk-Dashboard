@@ -54,6 +54,13 @@ if st.button("Calculate Risk"):
     if smoking == 1:
         stroke_risk += 0.05
     stroke_risk = min(stroke_risk, 1.0)
+    
+    if heart_risk > 0.20 or stroke_risk > 0.15:
+    st.error("High Risk Detected: Please consult a physician for a formal evaluation as soon as possible.")
+    elif heart_risk > 0.10:
+    st.warning("Moderate Risk: Consider lifestyle changes and regular monitoring.")
+    else:
+    st.success("Low Risk: Maintain your healthy lifestyle habits!")
 
     st.header("Results")
     st.write(f"Heart Disease Risk: {heart_risk * 100:.2f}%")
@@ -69,7 +76,7 @@ with st.sidebar:
     st.markdown("""
     **Name:** Krish Kaliraj
     
-    **Focus:** TKS Focus Project - AI in Healthcare
+    **Focus:** AI integrated Healthcare
     
     I am a TKS Innovate Student passionate about integrating AI in Healthcare 
     to maximize efficiency, save more lives, and improve health for all.
