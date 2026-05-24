@@ -6,7 +6,7 @@ import pickle
 st.set_page_config(page_title="AI Health Dashboard", layout="wide")
 
 st.title("AI Health Risk Dashboard")
-st.write("This dashboard is a functional MVP designed to demonstrate how a multi-modal AI pipeline can screen for interconnected health risks.")
+st.write("Enter your health information below to estimate risk levels.")
 
 # Load models
 with open("heart_model.pkl", "rb") as f:
@@ -74,7 +74,7 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
    
     # Alert Banner
     if heart_risk > 0.20 or stroke_risk > 0.15:
-        st.error("⚠️ **High Risk Detected:** Please consult a physician for a formal evaluation as soon as possible.")
+        st.error(" **High Risk Detected:** Please consult a physician for a formal evaluation as soon as possible.")
     elif heart_risk > 0.10:
         st.warning("**Moderate Risk:** Consider lifestyle changes and regular monitoring.")
     else:
@@ -105,11 +105,14 @@ with st.sidebar:
     - **Logic:** Multi-modal Heuristic Layer 
     """)
     
-    st.subheader("🚀 Roadmap")
+    st.subheader(" Roadmap")
     st.write("""
-    1. **Data Expansion:** Adding more diverse demographic data.
-    2. **Explainability:** Implementing SHAP values to explain risk factors.
-    3. **Doctor Portal:** Exportable health summaries.
+    1. **Diverse Data:** Adding more diverse demographic data to improve accuracy.
+    2. **Explainability:** Implementing SHAP values to explain risk factors, which features (like Glucose vs BMI) are influencing the risk scores more.
+    3. **Doctor Portal:
+    **  - Automated PDF Reports for patient-doctor consultations.
+        - Risk Factor Attribution (showing the doctor exactly *why* a risk is high).
+        - Longitudinal Tracking to monitor patient risk trends over time.
     """)
 
-
+ 
