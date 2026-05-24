@@ -119,12 +119,12 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
     with res_col3:
         st.metric(label="Stroke Risk", value=f"{stroke_risk * 100:.1f}%")    
 
-    # We check Heart (>20%), Stroke (>15%), and Diabetes (>20%) for High Risk
+    # We check Heart (>25%), Stroke (>20%), and Diabetes (>25%) for High Risk
     if heart_risk > 0.20 or stroke_risk > 0.15 or diabetes_risk > 0.20:
         st.error("**High Risk Detected:** Please consult a physician for a formal evaluation as soon as possible.")
     
-    # We check Heart (>10%) and Diabetes (>10%) for Moderate Risk
-    elif heart_risk > 0.10 or diabetes_risk > 0.10:
+    # We check Heart (>15%) and Diabetes (>15%) for Moderate Risk
+    elif heart_risk > 0.15 or diabetes_risk > 0.15:
         st.warning("**Moderate Risk:** Consider lifestyle changes and regular monitoring.")
     
     else:
