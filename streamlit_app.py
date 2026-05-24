@@ -25,18 +25,20 @@ col_in1, col_in2 = st.columns(2)
 
 with col_in1:
     st.subheader("Physical Vitals")
-    age = st.number_input("Age", min_value=1, max_value=120, value=25)
+    age = st.number_input("Age", min_value=1, max_value=110, value=25)
     blood_pressure = st.number_input("Blood Pressure", min_value=50, max_value=200, value=110)
     cholesterol = st.number_input("Cholesterol", min_value=100, max_value=400, value=150)
     max_heart_rate = st.number_input("Max Heart Rate", min_value=60, max_value=220, value=180)
+    bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, value=22.0)
+    glucose = st.number_input("Glucose Level", min_value=50, max_value=300, value=90)
 
 with col_in2:
     st.subheader("Lifestyle")
-    bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, value=22.0)
-    glucose = st.number_input("Glucose Level", min_value=50, max_value=300, value=90)
     hypertension = st.selectbox("Hypertension", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
     heart_disease_existing = st.selectbox("Existing Heart Disease", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
     smoking = st.selectbox("Smoking Status", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
+    activity_level = st.selectbox("Physical Activity", ["Active (3+ times/week)", "Moderate", "Sedentary"], index=1)
+    diet_quality = st.selectbox("Diet Quality", ["High (Whole foods)", "Average", "Low (Processed/High Sugar)"], index=1)
 
 st.divider()
 
@@ -61,6 +63,26 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
     if smoking == 1: stroke_risk += 0.03
     stroke_risk = min(stroke_risk, 1.0)
     
+    if activity_level == "Sedentary":
+        heart_risk += 0.04
+        diabetes_risk += 0.04
+        stroke_risk += 0.03
+    elif activity_level == "Active (3+ times/week)":
+        heart_risk -= 0.02 # Benefit for being active
+        diabetes_risk -= 0.02
+
+    # 2. Diet Quality Adjustment
+    if diet_quality == "Low (Processed/High Sugar)":
+        diabetes_risk += 0.05
+        heart_risk += 0.03
+    elif diet_quality == "High (Whole foods)":
+        diabetes_risk -= 0.02
+        heart_risk -= 0.01
+
+    # Apply caps again at the very end
+    heart_risk = max(0.0, min(heart_risk, 1.0))
+    diabetes_risk = max(0.0, min(diabetes_risk, 1.0))
+    stroke_risk = max(0.0, min(stroke_risk, 1.0))
     st.header("Results")
     
     # Metrics display
