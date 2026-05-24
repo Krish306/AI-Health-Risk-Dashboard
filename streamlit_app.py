@@ -123,6 +123,13 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
         st.warning("**Moderate Risk:** Consider lifestyle changes and regular monitoring.")
     else:
         st.success("**Low Risk:** Maintain your healthy lifestyle habits!")
+    with st.expander("See Risk Calculation Logic"):
+        st.write("""
+        This dashboard uses a **Hybrid Intelligence Model**:
+        1. **Base Prediction:** Trained on clinical datasets (Cleveland, NHANES) using Logistic Regression.
+        2. **Heuristic Layer:** Adjusts scores based on lifestyle factors (Smoking, Stress, Activity) that are often underrepresented in static clinical snapshots.
+        3. **Clinical Thresholds:** Risk alerts are triggered based on standard epidemiological cut-offs.
+        """)    
        
 st.divider()
 st.caption("**Disclaimer:** This AI Health Risk Dashboard is a prototype developed for a TKS focus project. "
