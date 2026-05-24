@@ -39,8 +39,11 @@ with col_in2:
     smoking = st.selectbox("Smoking Status", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
     activity_level = st.selectbox("Physical Activity", ["Active (3+ times/week)", "Moderate", "Sedentary"], index=1)
     diet_quality = st.selectbox("Diet Quality", ["High (Whole foods)", "Average", "Low (Processed/High Sugar)"], index=1)
-    stress_level = st.select_slider("Chronic Stress Level", options=["Low", "Moderate", "High"])
-    value="Low"
+    stress_level = st.select_slider(
+        "Chronic Stress Level", 
+        options=["Low", "Moderate", "High"], 
+        value="Low"
+    )
 
     # DYNAMIC COLOR FEEDBACK
     if stress_level == "Low":
