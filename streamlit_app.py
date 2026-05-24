@@ -31,7 +31,7 @@ with col_in1:
     max_heart_rate = st.number_input("Max Heart Rate", min_value=60, max_value=220, value=180)
 
 with col_in2:
-    st.subheader("Lifestyle & Labs")
+    st.subheader("Lifestyle")
     bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, value=22.0)
     glucose = st.number_input("Glucose Level", min_value=50, max_value=300, value=90)
     hypertension = st.selectbox("Hypertension", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
@@ -110,9 +110,9 @@ with st.sidebar:
     1. **Diverse Data:** Adding more diverse demographic data to improve accuracy.
     2. **Explainability:** Implementing SHAP values to explain risk factors, which features (like Glucose vs BMI) are influencing the risk scores more.
     3. **Doctor Portal:
-    **  - Automated PDF Reports for patient-doctor consultations.
-        - Risk Factor Attribution (showing the doctor exactly *why* a risk is high).
-        - Longitudinal Tracking to monitor patient risk trends over time.
+        - Automated PDF Reports for patient-doctor consultations.
+        - Risk Factor Attribution: showing the doctor exactly *why* a risk is high.
+        - Longitudinal Tracking: monitoring patient risk trends over time.
     """)
 
  
