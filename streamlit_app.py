@@ -68,6 +68,7 @@ with st.sidebar:
     st.title("About Me")
     st.markdown("""
     **Name:** Krish Kaliraj
+    
     **Focus:** TKS Focus Project - AI in Healthcare
     
     I am a TKS Innovate Student passionate about integrating AI in Healthcare 
