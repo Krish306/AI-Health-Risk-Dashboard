@@ -42,7 +42,6 @@ with col_in2:
     stress_level = st.select_slider(
         "Chronic Stress Level", 
         options=["Low", "Moderate", "High"], 
-        value="Low"
     )
 
     # DYNAMIC COLOR FEEDBACK
