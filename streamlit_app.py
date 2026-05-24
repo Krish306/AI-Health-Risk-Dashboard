@@ -144,7 +144,7 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
             st.write("- **Diagnostic Screenings:** Maintain regular lipid panels and HbA1c checks to monitor metabolic trends.")
         
         # ALWAYS SHOW THIS (General Clinical Advice)
-        st.write("- **Baseline Vitals:** Even with low risk scores, an annual physical is recommended to establish your 'clinical baseline'.")
+        st.write("- **Baseline Vitals:** Even with low risk scores, an annual physical is recommended to remain in good health.")
         st.write("- **Physician Review:** Share these AI-stratified results with your doctor to discuss long-term preventive care.")
 
     with plan_col2:
