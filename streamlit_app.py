@@ -67,13 +67,13 @@ st.caption("**Disclaimer:** This AI Health Risk Dashboard is a prototype develop
 with st.sidebar:
     st.title("About Me")
     st.markdown("""
-    **Name:** [Krish Kaliraj]
+    **Name:** Krish Kaliraj
     **Focus:** TKS Focus Project - AI in Healthcare
     
     I am a TKS Innovate Student passionate about integrating AI in Healthcare 
-    to maximize efficiency, save more lives, and improve overall health.
-    This dashboard is one of my early-stage projects, 
-    using credible public health datasets to create a predictive model to identify potential health risks.
+    to maximize efficiency, save more lives, and improve health for all.
+    This dashboard is one of my projects, currently in its initial stages.
+    It uses credible public health datasets to build a predictive model that identifies potential health risks.
     """)
     
     st.divider()
@@ -82,5 +82,5 @@ with st.sidebar:
     st.info("""
     - **Models:** Logistic Regression / Random Forest
     - **Datasets:** Cleveland Clinic, Kaggle, NHANES
-    - **Logic:** Multi-modal Heuristic Layer for comorbidity risk
+    - **Logic:** Multi-modal Heuristic Layer 
     """)
