@@ -65,14 +65,22 @@ st.caption("**Disclaimer:** This AI Health Risk Dashboard is a prototype develop
            "and are for informational purposes only. This tool does not provide medical advice "
            "and should not be used for self-diagnosis. Please consult a qualified healthcare professional.")
 with st.sidebar:
-    st.title("About Project")
+    st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=100) # Generic profile icon
+    st.title("About Me")
+    st.markdown("""
+    **Name:** [Your Name]
+    **Focus:** TKS Focus Project - AI in Healthcare
+    
+    I am a TKS student passionate about using Machine Learning to solve 
+    problems in the medical space. This dashboard is the culmination of 
+    my research into cardiovascular risk factors and predictive modeling.
+    """)
+    
+    st.divider()
+    
+    st.subheader("Project Technicals")
     st.info("""
-    **Model Architecture:** - Logistic Regression / Random Forest
-    - Multi-modal Heuristic Layer
-    
-    **Datasets:** - Cleveland Heart Disease Dataset
-    - Kaggle Diabetes Dataset
-    - Kaggle Stroke Dataset
-    
-    **Developer:** [Krish Kaliraj]
+    - **Models:** Logistic Regression / Random Forest
+    - **Data Sources:** Cleveland Clinic, Kaggle, NHANES
+    - **Logic:** Multi-modal Heuristic Layer for comorbidity risk
     """)
