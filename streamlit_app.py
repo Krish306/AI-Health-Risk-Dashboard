@@ -127,7 +127,7 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
     else:
         st.success("**Low Risk:** Maintain your healthy lifestyle habits!")
     st.divider()
-    st.subheader("### Personalized Risk Mitigation Plan")
+    st.subheader("Personalized Risk Mitigation Plan")
     st.caption("This plan provides evidence-based suggestions. Consult a professional before implementation.")
     
     plan_col1, plan_col2 = st.columns(2)
@@ -149,6 +149,7 @@ if st.button("Calculate Risk Score", type="primary"): # Made the button blue/pri
             st.write("- **Stress Reduction:** Chronic high cortisol levels impact metabolic health; consider MBSR or mindfulness practices.")
         if age > 50:
             st.write("- **Diagnostic Screenings:** Ensure regular lipid panels and A1C checks are up to date.")
+            
     with st.expander("See Risk Calculation Logic"):
         st.write("""
         This dashboard uses a **Hybrid Intelligence Model**:
